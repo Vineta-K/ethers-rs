@@ -132,7 +132,7 @@ pub struct TxpoolTransaction {
     pub gas: Option<U256>,
     pub gas_price: Option<U256>,
     pub input: Bytes,
-    pub chain_id: Option<U64>,
+    pub chain_id: Option<U256>,
     #[serde(rename = "type")]
     pub transaction_type: Option<U64>,
     pub v: U64,
