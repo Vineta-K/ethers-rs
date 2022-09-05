@@ -119,17 +119,26 @@ pub struct TxpoolContent {
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct TxpoolTransaction {
+    pub nonce: U256,
+    pub hash: H256,
     pub block_hash: Option<H256>,
     pub block_number: Option<U64>,
+    pub transaction_index: Option<U64>,
     pub from: Option<Address>,
+    pub to: Option<Address>,
+    pub value: U256,
+    pub max_priority_fee_per_gas: Option<U256>,
+    pub max_fee_per_gas: Option<U256>,
     pub gas: Option<U256>,
     pub gas_price: Option<U256>,
-    pub hash: H256,
     pub input: Bytes,
-    pub nonce: U256,
-    pub to: Option<Address>,
-    pub transaction_index: Option<U64>,
-    pub value: U256,
+    pub chain_id: Option<U64>,
+    #[serde(rename = "type")]
+    pub transaction_type: Option<U64>,
+    pub v: U64,
+    pub s: U256,
+    pub r: U256,
+    pub y_parity: bool,
 }
 
 /// Transaction Pool Inspect
