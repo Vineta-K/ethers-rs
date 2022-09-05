@@ -138,7 +138,6 @@ pub struct TxpoolTransaction {
     pub v: U64,
     pub s: U256,
     pub r: U256,
-    pub y_parity: bool,
 }
 
 /// Transaction Pool Inspect
