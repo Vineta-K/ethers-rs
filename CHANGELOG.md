@@ -4,6 +4,7 @@
 
 ### Unreleased
 
+- Fix geth trace types for debug_traceTransaction rpc
 - Fix RLP decoding of legacy `Transaction`
 - Fix RLP encoding of `TransactionReceipt` [#1661](https://github.com/gakonst/ethers-rs/pull/1661)
 - Add `Unit8` helper type [#1639](https://github.com/gakonst/ethers-rs/pull/1639)
@@ -93,6 +94,7 @@
 
 ### Unreleased
 
+- Use corresponding rust structs for event fields if they're solidity structs [#1674](https://github.com/gakonst/ethers-rs/pull/1674)
 - Add `ContractFilter` to filter contracts in `MultiAbigen` [#1564](https://github.com/gakonst/ethers-rs/pull/1564)
 - generate error bindings for custom errors [#1549](https://github.com/gakonst/ethers-rs/pull/1549)
 - Support overloaded events
@@ -264,6 +266,8 @@
 
 ### Unreleased
 
+- Add abigen to default features
+  [#1684](https://github.com/gakonst/ethers-rs/pull/1684)
 - Add extra Multicall helper methods
   [#1666](https://github.com/gakonst/ethers-rs/pull/1666)
 - Update Multicall to Multicall3
