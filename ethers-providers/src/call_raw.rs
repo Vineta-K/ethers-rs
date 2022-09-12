@@ -317,7 +317,7 @@ pub mod spoof {
         }
         
         pub fn hashmap(&self) -> HashMap<Address, Account> {
-            self.0
+            self.0.clone()
         }
     }
 
