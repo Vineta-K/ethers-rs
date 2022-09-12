@@ -315,6 +315,10 @@ pub mod spoof {
         pub fn account(&mut self, adr: Address) -> &mut Account {
             self.0.entry(adr).or_default()
         }
+        
+        pub fn hashmap(&self) -> HashMap<Address, Account> {
+            self.0
+        }
     }
 
     /// Returns an empty state override set.
