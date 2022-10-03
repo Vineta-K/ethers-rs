@@ -263,7 +263,7 @@ pub mod spoof {
             self
         }
         /// Override the value of the account storage at the given storage `key`
-        pub fn store(&mut self, key: H256, val: U256) -> &mut Self {
+        pub fn store(&mut self, key: H256, val: H256) -> &mut Self {
             self.storage.get_or_insert_with(Default::default).insert(key, val);
             self
         }
@@ -276,9 +276,9 @@ pub mod spoof {
     #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
     pub enum Storage {
         #[serde(rename = "stateDiff")]
-        Diff(HashMap<H256, U256>),
+        Diff(HashMap<H256, H256>),
         #[serde(rename = "state")]
-        Replace(HashMap<H256, U256>),
+        Replace(HashMap<H256, H256>),
     }
 
     /// The default storage override is a diff on the existing state of the account.
