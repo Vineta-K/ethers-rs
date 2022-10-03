@@ -288,7 +288,7 @@ pub mod spoof {
         }
     }
     impl std::ops::Deref for Storage {
-        type Target = HashMap<H256, U256>;
+        type Target = HashMap<H256, H256>;
         fn deref(&self) -> &Self::Target {
             match self {
                 Self::Diff(map) => map,
@@ -489,7 +489,7 @@ pub mod spoof {
     /// # Ok(())
     /// # }
     /// ```
-    pub fn storage(adr: Address, key: H256, val: U256) -> State {
+    pub fn storage(adr: Address, key: H256, val: H256) -> State {
         let mut state = State::default();
         state.account(adr).store(key, val);
         state
