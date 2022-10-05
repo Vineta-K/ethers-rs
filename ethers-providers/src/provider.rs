@@ -1,5 +1,5 @@
 use crate::{
-    call_raw::CallBuilder,
+    call_raw::{CallBuilder,State},
     ens, erc, maybe,
     pubsub::{PubsubClient, SubscriptionStream},
     stream::{FilterWatcher, DEFAULT_LOCAL_POLL_INTERVAL, DEFAULT_POLL_INTERVAL},
@@ -576,6 +576,18 @@ impl<P: JsonRpcClient> Middleware for Provider<P> {
         let tx = utils::serialize(tx);
         let block = utils::serialize(&block.unwrap_or_else(|| BlockNumber::Latest.into()));
         self.request("eth_estimateGas", [tx, block]).await
+    }
+
+    async fn estimate_gas_override(
+        &self,
+        tx: &TypedTransaction,
+        block: Option<BlockId>,
+        state: &State,
+    ) -> Result<U256, ProviderError> {
+        let tx = utils::serialize(tx);
+        let block = utils::serialize(&block.unwrap_or_else(|| BlockNumber::Latest.into()));
+        let state = utils::serialize(state);
+        self.request("eth_estimateGas", [tx, block, state]).await
     }
 
     async fn create_access_list(
