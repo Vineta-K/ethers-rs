@@ -21,6 +21,7 @@ pub use pending_escalator::EscalatingPending;
 
 mod log_query;
 pub use log_query::{LogQuery, LogQueryError};
+pub use call_raw::spoof::State;
 
 mod stream;
 pub use futures_util::StreamExt;
@@ -314,6 +315,15 @@ pub trait Middleware: Sync + Send + Debug {
         block: Option<BlockId>,
     ) -> Result<U256, Self::Error> {
         self.inner().estimate_gas(tx, block).await.map_err(FromErr::from)
+    }
+
+    async fn estimate_gas_override(
+        &self,
+        tx: &TypedTransaction,
+        block: Option<BlockId>,
+        state: &State,
+    ) -> Result<U256, Self::Error> {
+        self.inner().estimate_gas_override(tx, block, state).await.map_err(FromErr::from)
     }
 
     async fn call(
