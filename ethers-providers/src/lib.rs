@@ -635,7 +635,7 @@ pub trait Middleware: Sync + Send + Debug {
 
     async fn subscribe_pending_txs(
         &self,
-    ) -> Result<SubscriptionStream<'_, Self::Provider, TxHash>, Self::Error>
+    ) -> Result<SubscriptionStream<'_, Self::Provider, TxpoolTransaction>, Self::Error>
     where
         <Self as Middleware>::Provider: PubsubClient,
     {
