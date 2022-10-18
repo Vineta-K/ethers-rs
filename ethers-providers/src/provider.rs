@@ -24,7 +24,7 @@ use ethers_core::{
         Address, Block, BlockId, BlockNumber, BlockTrace, Bytes, EIP1186ProofResponse, FeeHistory,
         Filter, FilterBlockOption, GethDebugTracingOptions, GethTrace, Log, NameOrAddress,
         Selector, Signature, Trace, TraceFilter, TraceType, Transaction, TransactionReceipt,
-        TransactionRequest, TxHash, TxpoolContent, TxpoolInspect, TxpoolStatus, H256, U256, U64,
+        TransactionRequest, TxHash, TxpoolContent, TxpoolTransaction, TxpoolInspect, TxpoolStatus, H256, U256, U64,
     },
     utils,
 };
