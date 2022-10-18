@@ -1129,7 +1129,7 @@ impl<P: JsonRpcClient> Middleware for Provider<P> {
 
     async fn subscribe_pending_txs(
         &self,
-    ) -> Result<SubscriptionStream<'_, P, TxHash>, ProviderError>
+    ) -> Result<SubscriptionStream<'_, P, TxpoolTransaction>, ProviderError>
     where
         P: PubsubClient,
     {
